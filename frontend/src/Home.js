@@ -9,7 +9,8 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/properties/")
+      // axios.get("https://hrkinfra.onrender.com/properties/")
+      axios.get(`${process.env.REACT_APP_API_URL}/properties/`)
       .then(res => {
         setProperties(res.data);
         setLoading(false);
