@@ -15,14 +15,19 @@ class PropertySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_image(self, obj):
-        request = self.context.get('request', None)
+        try:
+            if obj.image:
+                request = self.context.get('request')
 
-        if obj.image:
-            if request:
-                return request.build_absolute_uri(obj.image.url)
-            return obj.image.url
+                if request:
+                    return request.build_absolute_uri(obj.image.url)
 
-        return None
+                return obj.image.url
+
+            return None
+
+        except:
+            return None
 
 
 class InquirySerializer(serializers.ModelSerializer):
