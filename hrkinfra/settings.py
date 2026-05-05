@@ -155,9 +155,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import cloudinary
 
 cloudinary.config(
-    cloud_name="dvqkoyfpa",
-    api_key="848747699616977",
-    api_secret="*********************************"
+    cloud_name=os.environ.get("dvqkoyfpa"),
+    api_key=os.environ.get("848747699616977"),
+    api_secret=os.environ.get("*********************************")
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
