@@ -11,7 +11,7 @@ class PropertySerializer(serializers.ModelSerializer):
 
     def get_image(self, obj):
         request = self.context.get('request')
-        if obj.image:
+        if obj.image and request:
             return request.build_absolute_uri(obj.image.url)
         return None
 
