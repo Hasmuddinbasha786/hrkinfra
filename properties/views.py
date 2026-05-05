@@ -1,7 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Property, Inquiry
 from .serializers import PropertySerializer, InquirySerializer
+from django.contrib.auth.models import User
 
+User.objects.create_superuser("hashu", "youremail@gmail.com", "12345678")
 
 class PropertyViewSet(ModelViewSet):
     queryset = Property.objects.all()
