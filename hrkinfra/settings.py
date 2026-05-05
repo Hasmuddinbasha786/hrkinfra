@@ -45,6 +45,9 @@ INSTALLED_APPS = [
 
     'properties.apps.PropertiesConfig',
     'rest_framework',
+
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +150,14 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name="dvqkoyfpa",
+    api_key="848747699616977",
+    api_secret="*********************************"
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

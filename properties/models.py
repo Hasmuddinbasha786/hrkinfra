@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 
 
 class Property(models.Model):
@@ -7,8 +7,8 @@ class Property(models.Model):
     price = models.IntegerField()
     location = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='properties/', null=True, blank=True)
-
+    image = CloudinaryField('image')
+    
     def __str__(self):
         return self.title
     
