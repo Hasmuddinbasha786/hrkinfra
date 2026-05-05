@@ -8,7 +8,7 @@ class PropertyViewSet(ModelViewSet):
     serializer_class = PropertySerializer
 
     def get_serializer_context(self):
-        return {'request': self.request}
+        return {"request": self.request}
 
 
 class InquiryViewSet(ModelViewSet):

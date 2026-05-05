@@ -11,11 +11,11 @@ class PropertySerializer(serializers.ModelSerializer):
 
     def get_image(self, obj):
         request = self.context.get('request')
-        
+
         try:
             if obj.image and hasattr(obj.image, 'url') and request:
                 return request.build_absolute_uri(obj.image.url)
-        except:
+        except Exception:
             return None
 
         return None
